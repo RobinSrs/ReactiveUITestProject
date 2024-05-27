@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:BasePage
+    x:Class="TestNavigationProject.TestApplication.ChooseLanguageView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:TestNavigationProject.TestApplication;assembly=TestNavigationProject"
+    xmlns:rxui="clr-namespace:ReactiveUI.Maui;assembly=ReactiveUI.Maui"
+    x:TypeArguments="local:ChooseLanguageViewModel"
+    BackgroundColor="{DynamicResource DefaultBackgroundColor}"
+    NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <Grid ColumnSpacing="0" RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*" />
+                <RowDefinition Height="0.85*" />
+                <RowDefinition Height="3.3*" />
+                <RowDefinition Height="0.85*" />
+                <RowDefinition Height="0.6*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.2*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1.2*" />
+            </Grid.ColumnDefinitions>
+            <Label
+                x:Name="HeaderView"
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                FontSize="30"
+                Text="Choose a language to proceed." />
+            <ActivityIndicator
+                x:Name="Spinner"
+                Grid.Row="1"
+                Grid.RowSpan="3"
+                Grid.Column="1"
+                Color="{StaticResource DefaultHeaderInstructionBackgroundColor}" />
+            <Grid
+                x:Name="Flags"
+                Grid.Row="2"
+                Grid.Column="1"
+                ColumnSpacing="1"
+                RowSpacing="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="0.25*" />
+                    <RowDefinition Height="0.2*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="0.25*" />
+                </Grid.RowDefinitions>
+                <ImageButton
+                    x:Name="SwitchLanguageNL"
+                    Grid.Row="0"
+                    Margin="2"
+                    BackgroundColor="Transparent"
+                    CommandParameter="nl-NL"
+                    Source="nl_flag" />
+                <Label
+                    Grid.Row="1"
+                    FontAttributes="Bold"
+                    FontSize="15"
+                    HorizontalTextAlignment="Center"
+                    Text="Nederlands"
+                    TextColor="{StaticResource DefaultTextColor}"
+                    VerticalTextAlignment="Center" />
+                <ImageButton
+                    x:Name="SwitchLanguageUK"
+                    Grid.Row="3"
+                    Margin="2"
+                    BackgroundColor="Transparent"
+                    CommandParameter="en-us"
+                    Source="uk_flag" />
+                <Label
+                    Grid.Row="4"
+                    FontAttributes="Bold"
+                    FontSize="15"
+                    HorizontalTextAlignment="Center"
+                    Text="English"
+                    TextColor="{StaticResource DefaultTextColor}"
+                    VerticalTextAlignment="Center" />
+            </Grid>
+            <rxui:ViewModelViewHost
+                x:Name="FooterView"
+                Grid.Row="4"
+                Grid.Column="0"
+                Grid.ColumnSpan="3" />
+        </Grid>
+    </ContentPage.Content>
+</local:BasePage>
